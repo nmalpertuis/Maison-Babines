@@ -27,6 +27,8 @@ import { Baron, Flamant, Hibou, Homard, Moustache, Tonnerre } from '@/components
 import { ProductCard } from '@/components/product/ProductCard';
 import { SizeGuideModal } from '@/components/product/SizeGuide';
 import { NewsletterForm } from '@/components/layout/NewsletterForm';
+import { ScrollStory } from '@/components/motion/ScrollStory';
+import { SplitTitle } from '@/components/motion/SplitTitle';
 
 const TITRE = ['Le', 'grand', 'soir,', 'à', 'quatre', 'pattes.'];
 
@@ -172,7 +174,7 @@ function CommentCaMarche() {
     <section id="comment-ca-marche" className="section scroll-mt-24 bg-creme" aria-labelledby="ccm-titre">
       <div className="conteneur">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 id="ccm-titre">Quatre étapes, zéro stress</h2>
+          <SplitTitle id="ccm-titre" texte="Quatre étapes, zéro stress" />
         </Reveal>
         <Cascade as="ul" className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* fil pointillé qui relie les étapes */}
@@ -219,7 +221,7 @@ function ParOccasion() {
   return (
     <section className="section bg-creme pt-0 lg:pt-0" aria-labelledby="occ-titre">
       <div className="conteneur">
-        <Reveal><h2 id="occ-titre" className="text-center">Pour quelle grande occasion ?</h2></Reveal>
+        <Reveal><SplitTitle id="occ-titre" className="text-center" texte="Pour quelle grande occasion ?" /></Reveal>
         <Cascade className="mt-12 hidden gap-8 sm:grid sm:grid-cols-2 lg:grid-cols-3">
           {OCCASIONS.map((o) => <motion.div key={o.id} variants={enfant}><OccasionCard o={o} /></motion.div>)}
         </Cascade>
@@ -244,7 +246,7 @@ function Stars() {
       <ScallopDivider couleur="var(--creme)" />
       <div className="conteneur section">
         <Reveal className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
-          <h2 id="stars-titre" className="max-w-2xl">Les pièces qui font tourner les têtes</h2>
+          <SplitTitle id="stars-titre" className="max-w-2xl" texte="Les pièces qui font tourner les têtes" />
           <Link to="/catalogue" className="hidden items-center gap-2 font-extrabold hover:underline lg:inline-flex">Tout voir <ArrowRight size={18} strokeWidth={2.5} aria-hidden /></Link>
         </Reveal>
         <Reveal delai={0.1} className="mt-12">
@@ -309,7 +311,7 @@ function Personnel() {
         <Homard className="pointer-events-none absolute bottom-10 right-0 hidden w-24 xl:block" />
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="surtitre text-bordeaux">Bienvenue au Grand Hôtel</p>
-          <h2 id="perso-titre" className="mt-3">Le personnel vous attend</h2>
+          <SplitTitle id="perso-titre" className="mt-3" texte="Le personnel vous attend" />
           <p className="mt-4 text-noir/75">Survolez (ou touchez) une carte pour faire connaissance.</p>
         </Reveal>
         <Cascade as="ul" className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
@@ -330,7 +332,7 @@ function PourquoiLouer() {
     <section className="relative bg-vert" aria-labelledby="louer-titre">
       <ScallopDivider couleur="var(--creme)" />
       <div className="conteneur section">
-        <Reveal><h2 id="louer-titre" className="mx-auto max-w-3xl text-center">Le luxe d'un jour, sans le placard plein</h2></Reveal>
+        <Reveal><SplitTitle id="louer-titre" className="mx-auto max-w-3xl text-center" texte="Le luxe d'un jour, sans le placard plein" /></Reveal>
         <Cascade as="ul" className="mt-14 grid gap-6 md:grid-cols-3">
           {[
             { v: 70, pre: "jusqu'à ", suf: ' %', t: "moins cher qu'un achat" },
@@ -368,7 +370,7 @@ function LivreDor() {
       <div className="conteneur section">
         <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
           <Reveal>
-            <h2 id="ldo-titre">Ils sont venus, ils ont brillé</h2>
+            <SplitTitle id="ldo-titre" texte="Ils sont venus, ils ont brillé" />
             <p className="mt-4 flex flex-wrap items-center gap-3 text-lg font-semibold">
               <RatingStars note={NOTE_GLOBALE.note} taille={26} />
               <span>4,8/5 · 1 243 avis <span className="text-sm text-noir/60">(fictif)</span></span>
@@ -405,7 +407,7 @@ function Mur() {
       <div className="conteneur">
         <Reveal className="text-center">
           <p className="surtitre inline-flex items-center gap-1 text-bordeaux"><Hash size={16} strokeWidth={3} aria-hidden />BabinesDeGala</p>
-          <h2 id="mur-titre" className="mt-3">Vos chiens, nos stars</h2>
+          <SplitTitle id="mur-titre" className="mt-3" texte="Vos chiens, nos stars" />
         </Reveal>
         <ul className="mt-12 grid grid-cols-2 gap-5 sm:gap-8 md:grid-cols-4">
           {couleurs.map((c, i) => (
@@ -438,7 +440,7 @@ function Newsletter() {
       <ScallopDivider couleur="var(--creme)" />
       <div className="conteneur section grid items-center gap-10 lg:grid-cols-[1fr_1fr]">
         <Reveal>
-          <h2 id="nl-titre">La Gazette du Grand Hôtel</h2>
+          <SplitTitle id="nl-titre" texte="La Gazette du Grand Hôtel" />
           <p className="mt-4 max-w-lg text-lg">Nouvelles collections, coulisses de l'Atelier et -10 % sur votre première location.</p>
         </Reveal>
         <Reveal delai={0.1}>
@@ -466,6 +468,7 @@ export default function Home() {
       />
       <Hero />
       <Marquee items={['Mariage', 'Gala', 'Baptême', 'Noël', 'Anniversaire', 'Tapis rouge', 'Tenue de soirée exigée, laisse comprise']} />
+      <ScrollStory />
       <CommentCaMarche />
       <ParOccasion />
       <Stars />

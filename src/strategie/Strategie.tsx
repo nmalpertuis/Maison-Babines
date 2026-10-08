@@ -6,6 +6,7 @@ import { Printer, ArrowUp } from 'lucide-react';
 import { Logo } from '@/components/brand/Logo';
 import { Baron, Meringue, Moustache, Praline, Tonnerre } from '@/components/brand/illustrations';
 import { cx } from '@/lib/format';
+import { ExemplesContenus } from './ExemplesContenus';
 
 /* ------------------------------------------------------------------ */
 /* Briques de mise en page                                             */
@@ -21,6 +22,7 @@ const SECTIONS = [
   ['funnel', 'Parcours et acquisition'],
   ['social', 'Réseaux sociaux'],
   ['calendrier', 'Calendrier éditorial'],
+  ['exemples', 'Exemples de contenus'],
   ['influence', 'Influence et UGC'],
   ['seo', 'SEO et contenu'],
   ['crm', 'CRM et e-mailing'],
@@ -415,6 +417,10 @@ export default function Strategie() {
                 ['Décembre', 'Noël, réveillons', 'Pull de Fête Biscotte, Manteau Grand Hall, carte cadeau', 'Photo de famille de l\'année, pop-up'],
               ]}
             />
+          </Section>
+
+          <Section id="exemples" num={num()} titre="Exemples de contenus prêts à publier" intro="Des contenus concrets, rédigés et mis en forme, à reprendre tels quels dès le lancement : feed, posts, vidéos, stories, publicités, Pinterest, newsletter et LinkedIn.">
+            <ExemplesContenus />
           </Section>
 
           {/* 10 */}

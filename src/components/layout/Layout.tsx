@@ -6,20 +6,23 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { CookieBanner } from './CookieBanner';
 import { Chargement } from './Chargement';
+import { getLenis, useSmoothScroll } from '@/components/motion/SmoothScroll';
 
 export function Layout() {
   const loc = useLocation();
   const reduit = useReducedMotion();
   const { scrollYProgress } = useScroll();
   const progression = useSpring(scrollYProgress, { stiffness: 200, damping: 30 });
+  useSmoothScroll();
 
   // Retour en haut de page à chaque changement (sauf ancre).
   useEffect(() => {
     if (loc.hash) {
       const el = document.getElementById(loc.hash.slice(1));
-      if (el) { setTimeout(() => el.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' }), 80); return; }
+      if (el) { setTimeout(() => { const l = getLenis(); if (l) l.scrollTo(el, { offset: -100 }); else el.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth' }); }, 80); return; }
     }
-    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    const l = getLenis();
+    if (l) l.scrollTo(0, { immediate: true }); else window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   }, [loc.pathname, loc.hash, reduit]);
 
   return (
