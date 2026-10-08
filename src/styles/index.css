@@ -88,6 +88,10 @@
   .sr-only-focusable:not(:focus) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
 
+/* Curseur personnalisé (souris uniquement) */
+html.curseur-perso, html.curseur-perso * { cursor: none !important; }
+html.curseur-perso input, html.curseur-perso textarea, html.curseur-perso select, html.curseur-perso [contenteditable="true"] { cursor: auto !important; }
+
 /* Entrée de page */
 @keyframes page-entree { from { transform: translateY(18px); } to { transform: none; } }
 .page-entree { animation: page-entree 380ms cubic-bezier(.22,1,.36,1) both; }

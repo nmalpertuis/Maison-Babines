@@ -30,7 +30,7 @@ export function ProductCard({ produit, compact, apercu = true, onAjoutRapide }: 
       transition={{ type: 'spring', stiffness: 300, damping: 18 }}
     >
       <div className="relative">
-        <Link to={`/produit/${produit.slug}`} tabIndex={-1} aria-hidden className="block">
+        <Link to={`/produit/${produit.slug}`} tabIndex={-1} aria-hidden className="block" data-curseur="Voir">
           <motion.div className="relative aspect-square overflow-hidden rounded-t-[21px] border-b-[3px] border-noir" initial={reduit ? false : { clipPath: 'inset(100% 0% 0% 0%)' }} whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }} viewport={{ once: true, margin: '-40px' }} transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}>
             <ProductImage src={produit.images[0]} alt={produit.alt} couleur={produit.couleurFond} className="absolute inset-0" imgClassName="group-hover:scale-105" />
             {/* 2e photo au survol */}

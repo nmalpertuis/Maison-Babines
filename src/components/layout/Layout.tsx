@@ -7,6 +7,7 @@ import { Footer } from './Footer';
 import { CookieBanner } from './CookieBanner';
 import { Chargement } from './Chargement';
 import { getLenis, useSmoothScroll } from '@/components/motion/SmoothScroll';
+import { Curseur } from '@/components/motion/Curseur';
 
 export function Layout() {
   const loc = useLocation();
@@ -39,6 +40,7 @@ export function Layout() {
       </main>
       <Footer />
       <CookieBanner />
+      <Curseur />
     </div>
   );
 }

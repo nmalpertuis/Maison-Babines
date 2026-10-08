@@ -36,7 +36,7 @@ export function Carousel({ children, label, className, largeur = 'w-[82%] sm:w-[
 
   return (
     <div className={cx('relative', className)} role="region" aria-roledescription="carrousel" aria-label={label}>
-      <ul ref={piste} className="scroll-x -mx-6 flex snap-x snap-mandatory gap-6 px-6 pb-6 pt-2 lg:-mx-3 lg:px-3">
+      <ul ref={piste} data-curseur="Glisser" className="scroll-x -mx-6 flex snap-x snap-mandatory gap-6 px-6 pb-6 pt-2 lg:-mx-3 lg:px-3">
         {items.map((c, i) => (
           <li key={i} className={cx('shrink-0 snap-start', largeur)} aria-roledescription="diapositive" aria-label={`${i + 1} sur ${items.length}`}>
             {c}

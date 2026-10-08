@@ -198,7 +198,7 @@ function CommentCaMarche() {
 /* ------------------------------------------------------------------ */
 function OccasionCard({ o }: { o: (typeof OCCASIONS)[number] }) {
   return (
-    <Link to={`/catalogue?occasion=${o.id}`} className="group block h-full overflow-hidden rounded-rayon border-[3px] border-noir shadow-dure transition duration-200 hover:-translate-y-1 hover:-rotate-1 hover:shadow-survol" style={{ background: FOND[o.couleur] }}>
+    <Link to={`/catalogue?occasion=${o.id}`} data-curseur="Voir" className="group block h-full overflow-hidden rounded-rayon border-[3px] border-noir shadow-dure transition duration-200 hover:-translate-y-1 hover:-rotate-1 hover:shadow-survol" style={{ background: FOND[o.couleur] }}>
       <ProductImage src={`/images/occasions/${o.id}.svg`} alt={`Chien habillé pour : ${o.label}`} couleur={o.couleur} className="aspect-[4/3] border-b-[3px] border-noir" imgClassName="group-hover:scale-105" />
       <div className="flex items-center justify-between gap-3 bg-creme p-5">
         <div>
