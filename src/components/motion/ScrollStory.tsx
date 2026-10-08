@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { Crown, Gift, Heart, Sparkles } from 'lucide-react';
+import { ArrowDown, Crown, Gift, Heart, Sparkles } from 'lucide-react';
 import { getProduct } from '@/data/products';
 import { euros } from '@/lib/format';
 import { getLenis } from './SmoothScroll';
@@ -33,6 +33,14 @@ export function ScrollStory() {
   const acte = ACTES[actif];
   const produit = getProduct(acte.slug)!;
 
+  const passer = () => {
+    const el = ref.current;
+    if (!el) return;
+    const cible = el.offsetTop + el.offsetHeight;
+    const l = getLenis();
+    if (l) l.scrollTo(cible, { duration: 0.8 }); else window.scrollTo({ top: cible, behavior: 'smooth' });
+  };
+
   const aller = (i: number) => {
     const el = ref.current;
     if (!el) return;
@@ -42,7 +50,7 @@ export function ScrollStory() {
   };
 
   return (
-    <section ref={ref} aria-label="La garde-robe en quatre actes" className="relative" style={{ height: `${ACTES.length * 100 + 40}vh` }}>
+    <section ref={ref} aria-label="La garde-robe en quatre actes" className="relative" style={{ height: `${100 + ACTES.length * 35}vh` }}>
       <motion.div
         className="sticky top-0 flex h-screen items-center overflow-hidden border-y-[3px] border-noir"
         animate={{ backgroundColor: acte.fond }}
@@ -107,6 +115,10 @@ export function ScrollStory() {
             ))}
           </nav>
         </div>
+
+        <button type="button" onClick={passer} className="absolute right-4 top-24 z-10 inline-flex min-h-[44px] items-center gap-2 rounded-pilule border-[3px] border-noir bg-creme px-4 text-sm font-extrabold text-noir shadow-petite transition hover:-translate-y-0.5 lg:right-8">
+          Passer <ArrowDown size={16} strokeWidth={2.75} aria-hidden />
+        </button>
 
         {/* progression */}
         <div className="absolute inset-x-0 bottom-0 h-1.5 bg-noir/15" aria-hidden>

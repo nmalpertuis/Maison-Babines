@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, ChevronDown, Heart, Luggage } from 'lucide-react';
+import { ArrowRight, ChevronDown, Heart, LockKeyhole, Luggage } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { useFavorites } from '@/context/FavoritesContext';
 import { Logo } from '@/components/brand/Logo';
@@ -152,6 +152,9 @@ export function Header() {
           <NavLink to="/catalogue" className={cx('hidden min-h-[48px] items-center rounded-pilule border-[3px] border-noir bg-rose px-5 font-extrabold text-noir shadow-petite transition hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none lg:inline-flex')}>
             Réserver une tenue
           </NavLink>
+          <Link to="/admin" className={cx('relative hidden h-12 items-center gap-2 rounded-pilule border-[3px] px-4 text-sm font-extrabold transition hover:-translate-y-0.5 md:inline-flex', scrolle ? 'border-creme' : 'border-noir')} aria-label="Espace pro : CRM de l'équipe">
+            <LockKeyhole size={18} strokeWidth={2.5} aria-hidden /> <span className="hidden xl:inline">Espace pro</span>
+          </Link>
           <Link to="/catalogue?favoris=1" className={cx('relative hidden h-12 w-12 place-items-center rounded-full border-[3px] sm:grid', scrolle ? 'border-creme' : 'border-noir')} aria-label={`Mes favoris (${favoris.length})`}>
             <Heart size={20} strokeWidth={2.5} aria-hidden />
             {favoris.length > 0 && <span className="absolute -right-1.5 -top-1.5 grid h-6 min-w-[24px] place-items-center rounded-full border-2 border-noir bg-jaune px-1 text-xs font-extrabold text-noir">{favoris.length}</span>}

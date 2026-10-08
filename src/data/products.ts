@@ -298,7 +298,7 @@ export const products: Product[] = base.map(({ ref, ...p }) => ({
   ...p,
   id: ref,
   caution: CAUTIONS[p.gamme],
-  images: [1, 2, 3].map((n) => `/images/produits/${p.slug}-${n}.webp`),
+  images: [1, 2, 3].map((n) => `/images/produits/${p.slug}-${n}.svg`),
 }));
 
 export const getProduct = (slug: string) => products.find((p) => p.slug === slug);

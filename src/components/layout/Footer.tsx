@@ -61,7 +61,7 @@ export function Footer() {
             <li><Link to="/mentions-legales" className="hover:underline">Mentions légales</Link></li>
             <li><Link to="/confidentialite" className="hover:underline">Confidentialité</Link></li>
             <li><button type="button" onClick={ouvrirCookies} className="hover:underline">Gérer les cookies</button></li>
-            <li><Link to="/admin" className="hover:underline">Espace équipe</Link></li>
+            <li><Link to="/admin" className="font-bold hover:underline">Espace pro (CRM)</Link></li>
           </ul>
         </div>
       </div>

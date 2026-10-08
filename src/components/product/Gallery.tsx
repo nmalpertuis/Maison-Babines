@@ -7,7 +7,7 @@ import { Modal } from '@/components/ui/Modal';
 import { cx } from '@/lib/format';
 import { BADGES } from './ProductCard';
 
-const VUES = ['face', 'dos', 'détail'];
+const VUES = ['face', 'pose', 'détail'];
 
 /** Galerie : grande photo, 3 miniatures, zoom au survol, balayage au doigt, plein écran au clic. */
 export function Gallery({ produit }: { produit: Product }) {

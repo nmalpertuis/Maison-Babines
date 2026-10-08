@@ -11,6 +11,7 @@ export const MENU_MAISON = [
   { label: 'Notre expertise', to: '/expertise' },
   { label: "Le Livre d'or (avis)", to: '/avis' },
   { label: 'Offre Pro', to: '/expertise#offre-pro' },
+  { label: 'Espace pro (CRM)', to: '/admin' },
 ];
 
 export const MENU_AIDE = [

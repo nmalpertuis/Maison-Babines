@@ -19,7 +19,8 @@ const Conditions = lazy(() => import('./pages/Legal/Conditions'));
 const Confidentialite = lazy(() => import('./pages/Legal/Confidentialite'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Admin = lazy(() => import('./crm/Admin'));
-const Strategie = lazy(() => import('./strategie/Strategie'));
+// La stratégie marketing n'est servie qu'en local (npm run dev), jamais dans la version publiée.
+const Strategie = import.meta.env.DEV ? lazy(() => import('./strategie/Strategie')) : null;
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +43,6 @@ export const router = createBrowserRouter([
       { path: '*', element: <NotFound /> },
     ],
   },
-  { path: '/strategie', element: <Suspense fallback={<Chargement />}><Strategie /></Suspense> },
+  ...(Strategie ? [{ path: '/strategie', element: <Suspense fallback={<Chargement />}><Strategie /></Suspense> }] : []),
   { path: '/admin/*', element: <Suspense fallback={<Chargement />}><Admin /></Suspense> },
 ]);

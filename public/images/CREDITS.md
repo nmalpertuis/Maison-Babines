@@ -1,73 +1,15 @@
 # Crédits photos
 
-Toutes les photographies proviennent d'Unsplash (https://unsplash.com/license) : usage gratuit, y compris commercial, sans attribution obligatoire. Merci aux photographes :
+Les visuels produits et occasions sont des illustrations originales générées par `scripts/generer-visuels.mjs`.
 
-- Taylor Kopel (@taylorkopel) — https://unsplash.com/photos/JNm1dAElVtE
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/qy0BHykaq0E
-- Sergio Artnoart (@sergioartnoart) — https://unsplash.com/photos/5EIHVAuMeD4
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/KF1SFo83unM
-- FLOUFFY (@theflouffy) — https://unsplash.com/photos/PJTfOzSo8fQ
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/Rf-OjMYIAPk
-- FLOUFFY (@theflouffy) — https://unsplash.com/photos/7hEXd9kYPCY
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/6Ja5I4hRLyc
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/Y3v5VplrKDQ
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/EcIU1D_yZN0
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/IhQHW7HaGA8
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/CIeE1Pg5-YU
-- Roy Wen (@roy1025) — https://unsplash.com/photos/0alB2abhc04
-- Megs Harrison (@mharrisonphotography) — https://unsplash.com/photos/Gs4Mx1XQfRM
-- Alex Sokolov (@sokol_gallery) — https://unsplash.com/photos/rng9oG8FHyI
-- Bruno Souza (@bnsouzafotografia) — https://unsplash.com/photos/pWB1_djX8lQ
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/2EUJ2JxWJRU
-- FLOUFFY (@theflouffy) — https://unsplash.com/photos/Al0cRQcKw-k
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/RXb6RQi5hi0
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/GbMlci3cm9Y
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/QxZGpcnlrnA
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/F1PDaeAyr1A
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/rs_x0VjRY0U
-- FLOUFFY (@theflouffy) — https://unsplash.com/photos/NEigHitVXbk
-- Alexandre Daoust (@alexandredaoust) — https://unsplash.com/photos/DoMqElrLS5M
-- Dom Heartley (@domheartley) — https://unsplash.com/photos/DU5SgRvIqKM
-- Erwin Bosman (@erwinbosman) — https://unsplash.com/photos/EXFBAgv3EIM
-- Erwin Bosman (@erwinbosman) — https://unsplash.com/photos/s2uu-wH379k
-- Erwin Bosman (@erwinbosman) — https://unsplash.com/photos/xS4b546vzdA
-- Erwin Bosman (@erwinbosman) — https://unsplash.com/photos/usYdXAbSmCw
-- Nail Gilfanov (@ngilfanov) — https://unsplash.com/photos/nqWi9UtUN5I
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/tUCvnMOvXFQ
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/2rHw1I_IoT4
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/QcwLDcfLXkk
-- Mocno Fotografia (@mocno) — https://unsplash.com/photos/1Zj-h35UciY
-- Nail Gilfanov (@ngilfanov) — https://unsplash.com/photos/8qq_QbZDSxg
-- Nail Gilfanov (@ngilfanov) — https://unsplash.com/photos/LxlQWbvPIvQ
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/Ln3upC7iFe0
-- Alexandra Novitskaya (@alexnovii) — https://unsplash.com/photos/O6EhbndNhpA
-- Illumination Marketing (@illuminationmarketing) — https://unsplash.com/photos/VLvki6Nmk0M
-- Michael G (@escape_your_mind) — https://unsplash.com/photos/4o24UQKZlqQ
-- Michael G (@escape_your_mind) — https://unsplash.com/photos/uCtmEH8I3FQ
-- Michael G (@escape_your_mind) — https://unsplash.com/photos/4II4X_i10OI
-- Michael G (@escape_your_mind) — https://unsplash.com/photos/MlAs74rWgfo
-- Michael G (@escape_your_mind) — https://unsplash.com/photos/maxRftVeRE0
-- Michael G (@escape_your_mind) — https://unsplash.com/photos/1mF2PVkIZSw
-- Michael G (@escape_your_mind) — https://unsplash.com/photos/GwmLcRJ6NwU
-- Michael G (@escape_your_mind) — https://unsplash.com/photos/JrcE3FRsBfw
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/BJaqPaH6AGQ
-- FLOUFFY (@theflouffy) — https://unsplash.com/photos/O4TscN7RnSc
-- FLOUFFY (@theflouffy) — https://unsplash.com/photos/wAP_IBPhn-4
-- Michael G (@escape_your_mind) — https://unsplash.com/photos/P3d1tMU4Hds
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/WaMMo0it6Vg
-- Michael G (@escape_your_mind) — https://unsplash.com/photos/KuDi137PY4I
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/Qb7D1xw28Co
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/cre553Zfmtg
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/nxFp7SVQuvY
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/t-NPdbczYFY
+Photographies (mur #BabinesDeGala et atelier) : Unsplash (https://unsplash.com/license), usage gratuit y compris commercial, sans attribution obligatoire. Merci aux photographes :
+
 - Karsten Winegeart (@_karsten) — https://unsplash.com/photos/ZaLiX2MGHLw
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/NE0XGVKTmcA
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/EAAHTXub6E0
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/2Rg8kjU1M1g
 - Karsten Winegeart (@_karsten) — https://unsplash.com/photos/f3Onj_ChXUE
 - Karsten Winegeart (@_karsten) — https://unsplash.com/photos/GkpLfCRooCA
-- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/oU6KZTXhuvk
 - Karsten Winegeart (@_karsten) — https://unsplash.com/photos/OU0DLxBlVrs
 - Karsten Winegeart (@_karsten) — https://unsplash.com/photos/EBE3dJlUhGE
 - Karsten Winegeart (@_karsten) — https://unsplash.com/photos/UcvniPaMR_A
+- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/Rf-OjMYIAPk
+- Karsten Winegeart (@_karsten) — https://unsplash.com/photos/Y3v5VplrKDQ
 - Alexander Grey (@sharonmccutcheon) — https://unsplash.com/photos/TAZUc51iPUM

@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-export function Seo({ titre, description, image = '/images/occasions/mariage.webp', jsonLd }: { titre: string; description: string; image?: string; jsonLd?: object | object[] }) {
+export function Seo({ titre, description, image = '/images/mur/babines-01.webp', jsonLd }: { titre: string; description: string; image?: string; jsonLd?: object | object[] }) {
   return (
     <Helmet>
       <title>{titre}</title>

@@ -12,7 +12,7 @@ npm run dev
 Puis ouvrir l'adresse affichée par `npm run dev` (par défaut http://localhost:5173) :
 - **Site** : `/`
 - **CRM** : `/admin` (voir `CRM.md`)
-- **Stratégie marketing** : `/strategie`
+- **Stratégie marketing** : `/strategie` (uniquement en local, exclue de la version publiée)
 
 `npm run build` produit la version de production dans `dist/`.
 

@@ -6,7 +6,7 @@ import { cx } from '@/lib/format';
 
 /* Exemples de contenus prêts à publier, présentés en maquettes. Textes originaux Maison Babines. */
 
-const img = (slug: string, n = 1) => `/images/produits/${slug}-${n}.webp`;
+const img = (slug: string, n = 1) => `/images/produits/${slug}-${n}.svg`;
 const mur = (n: number) => `/images/mur/babines-0${n}.webp`;
 
 function Avatar({ taille = 32 }: { taille?: number }) {

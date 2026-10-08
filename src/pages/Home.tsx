@@ -82,9 +82,9 @@ function Hero() {
               <Baron className="w-full drop-shadow-[6px_6px_0_rgba(30,20,48,0.25)]" />
             </motion.div>
             {[
-              { t: 'Taille garantie', c: 'bg-bleu', cls: 'left-0 top-[14%]', a: -8, d: 0 },
-              { t: 'Nettoyage inclus', c: 'bg-vert', cls: 'right-0 top-[38%]', a: 6, d: 0.8 },
-              { t: 'Dès 19 €', c: 'bg-jaune', cls: 'left-[4%] bottom-[2%]', a: -4, d: 1.6 },
+              { t: 'Taille garantie', c: 'bg-bleu', cls: 'left-[2%] top-[4%]', a: -8, d: 0 },
+              { t: 'Nettoyage inclus', c: 'bg-vert', cls: 'right-[-2%] top-[0%]', a: 6, d: 0.8 },
+              { t: 'Dès 19 €', c: 'bg-jaune', cls: 'right-[6%] bottom-[0%]', a: -4, d: 1.6 },
             ].map((s) => (
               <motion.span
                 key={s.t}
@@ -177,10 +177,6 @@ function CommentCaMarche() {
           <SplitTitle id="ccm-titre" texte="Quatre étapes, zéro stress" />
         </Reveal>
         <Cascade as="ul" className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {/* fil pointillé qui relie les étapes */}
-          <svg aria-hidden className="pointer-events-none absolute left-0 top-24 hidden h-10 w-full lg:block" preserveAspectRatio="none" viewBox="0 0 100 10">
-            <motion.path d="M5 5 Q 25 0 50 5 T 95 5" fill="none" stroke="#1E1430" strokeWidth="0.5" strokeDasharray="1.5 1.5" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ duration: 1.6, ease: 'easeInOut' }} />
-          </svg>
           {ETAPES.map((e, i) => (
             <motion.li key={e.t} variants={enfant} className="relative">
               <div className="group flex h-full flex-col rounded-rayon border-[3px] border-noir bg-bleu p-6 shadow-dure transition hover:-translate-y-1 hover:rotate-1 hover:shadow-survol">
@@ -203,7 +199,7 @@ function CommentCaMarche() {
 function OccasionCard({ o }: { o: (typeof OCCASIONS)[number] }) {
   return (
     <Link to={`/catalogue?occasion=${o.id}`} className="group block h-full overflow-hidden rounded-rayon border-[3px] border-noir shadow-dure transition duration-200 hover:-translate-y-1 hover:-rotate-1 hover:shadow-survol" style={{ background: FOND[o.couleur] }}>
-      <ProductImage src={`/images/occasions/${o.id}.webp`} alt={`Chien habillé pour : ${o.label}`} couleur={o.couleur} className="aspect-[4/3] border-b-[3px] border-noir" imgClassName="group-hover:scale-105" />
+      <ProductImage src={`/images/occasions/${o.id}.svg`} alt={`Chien habillé pour : ${o.label}`} couleur={o.couleur} className="aspect-[4/3] border-b-[3px] border-noir" imgClassName="group-hover:scale-105" />
       <div className="flex items-center justify-between gap-3 bg-creme p-5">
         <div>
           <h3 className="text-[24px] lg:text-[28px]">{o.label}</h3>
@@ -288,7 +284,7 @@ function PackMariage() {
           transition={{ type: 'spring', stiffness: 90, damping: 14 }}
         >
           <div className="overflow-hidden rounded-rayon border-[3px] border-noir bg-creme p-3 shadow-[10px_10px_0_var(--noir)]">
-            <ProductImage src="/images/produits/le-porte-alliances-coussin-1.webp" alt="Chien en smoking portant un coussin d'alliances" couleur="rose" className="aspect-[4/5] rounded-2xl border-[3px] border-noir" />
+            <ProductImage src="/images/produits/le-porte-alliances-coussin-1.svg" alt="Chien en smoking portant un coussin d'alliances" couleur="rose" className="aspect-[4/5] rounded-2xl border-[3px] border-noir" />
             <p className="px-2 pb-1 pt-3 text-center font-titre text-xl italic text-noir">Pistache, porteur d'alliances</p>
           </div>
           <Sticker couleur="bg-jaune" angle={-10} className="absolute -left-6 -top-5 text-xl">-20 %</Sticker>
