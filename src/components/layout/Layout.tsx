@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion';
 import { AnnouncementBar } from './AnnouncementBar';
 import { Header } from './Header';
 import { Footer } from './Footer';
@@ -31,17 +31,12 @@ export function Layout() {
       <motion.div aria-hidden className="fixed inset-x-0 top-0 z-[150] h-1 origin-left bg-rose" style={{ scaleX: progression }} />
       <AnnouncementBar />
       <Header />
-      <AnimatePresence mode="wait">
-        <motion.main
-          key={loc.pathname} id="contenu" tabIndex={-1} className="flex-1 outline-none"
-          initial={reduit ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={reduit ? undefined : { opacity: 0, y: -8 }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <Suspense fallback={<Chargement />}>
-            <Outlet />
-          </Suspense>
-        </motion.main>
-      </AnimatePresence>
+      {/* Transition de page en CSS pur : le contenu ne peut pas rester invisible. */}
+      <main key={loc.pathname} id="contenu" tabIndex={-1} className="page-entree flex-1 outline-none">
+        <Suspense fallback={<Chargement />}>
+          <Outlet />
+        </Suspense>
+      </main>
       <Footer />
       <CookieBanner />
     </div>
