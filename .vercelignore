@@ -3,7 +3,5 @@ node_modules.nosync
 dist
 .env.local
 .env
-.DS_Store
-*.log
-.vercel
-.env*
+.claude
+*.pdf
