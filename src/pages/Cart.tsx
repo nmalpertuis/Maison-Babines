@@ -6,6 +6,7 @@ import { useCart } from '@/context/CartContext';
 import { datesLocation, recapMalle } from '@/hooks/usePrice';
 import { CODES_PROMO, OPTIONS } from '@/data/packs';
 import { gammeLabel } from '@/data/products';
+import { OCCASIONS } from '@/data/occasions';
 import { cx, dateCourte, dateLongue, euros } from '@/lib/format';
 import { Seo } from '@/components/ui/Seo';
 import { Button, ButtonLink } from '@/components/ui/Button';
@@ -30,6 +31,12 @@ function MalleVide() {
       </div>
       <p className="mt-8 font-titre text-3xl font-black">Votre malle est vide. Le Baron s'ennuie.</p>
       <ButtonLink to="/catalogue" taille="lg" className="mt-8">Remplir ma malle</ButtonLink>
+      <p className="mt-10 font-bold">Ou commencez par une occasion :</p>
+      <ul className="mt-4 flex flex-wrap justify-center gap-3">
+        {OCCASIONS.map((o) => (
+          <li key={o.id}><Link to={`/catalogue?occasion=${o.id}`} className="pastille">{o.label}</Link></li>
+        ))}
+      </ul>
     </div>
   );
 }

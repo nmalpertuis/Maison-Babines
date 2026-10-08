@@ -6,6 +6,7 @@ export default function Confidentialite() {
     <LegalLayout
       titre="Confidentialité et cookies" seo="Confidentialité et cookies · Maison Babines" description="Données collectées, finalités, durée de conservation, droits RGPD et cookies du site Maison Babines."
       rubriques={[
+        { id: 'responsable', titre: 'Responsable du traitement', contenu: <p>Maison Babines (projet fictif), 12 rue des Petits-Chiens, 69002 Lyon, bonjour@maisonbabines.fr. Dans le cadre du projet, les données saisies restent dans votre navigateur ou dans la base de démonstration du CRM.</p> },
         { id: 'donnees', titre: 'Données collectées', contenu: <ul><li>Formulaires : prénom, nom, e-mail, téléphone, nom et race du chien, date de l'événement, message, photo facultative.</li><li>Réservation : coordonnées de livraison, articles choisis.</li><li>Newsletter : adresse e-mail.</li><li>Malle et favoris : stockés uniquement dans votre navigateur.</li></ul> },
         { id: 'finalites', titre: 'Finalités', contenu: <p>Traiter vos demandes et réservations, vous conseiller sur la taille, envoyer la Gazette du Grand Hôtel si vous y êtes abonné. Aucune donnée n'est vendue ni cédée.</p> },
         { id: 'duree', titre: 'Durée de conservation', contenu: <p>Demandes de contact : 3 ans après le dernier échange. Réservations : durée légale de conservation des pièces comptables. Newsletter : jusqu'à désinscription.</p> },

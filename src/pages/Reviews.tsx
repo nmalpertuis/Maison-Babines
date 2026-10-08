@@ -111,7 +111,7 @@ export default function Reviews() {
 
       {/* Synthèse */}
       <section className="conteneur pb-10 pt-20" aria-labelledby="synthese-titre">
-        <h2 id="synthese-titre" className="sr-only">Synthèse des avis</h2>
+        <h2 id="synthese-titre" className="mb-8 font-titre text-[32px] font-black lg:text-[40px]">Répartition des notes</h2>
         <div className="grid gap-8 lg:grid-cols-[auto_1fr_auto] lg:items-center">
           <Reveal className="text-center lg:text-left">
             <p className="font-titre text-[120px] font-black leading-none">4,8</p>
@@ -189,7 +189,8 @@ export default function Reviews() {
       </div>
 
       {/* Mosaïque */}
-      <section className="conteneur pb-24 pt-10" aria-label="Avis clients">
+      <section className="conteneur pb-24 pt-10" aria-labelledby="liste-avis">
+        <h2 id="liste-avis" className="mb-2 font-titre text-[32px] font-black lg:text-[40px]">Les avis</h2>
         <p className="mb-6 font-bold" aria-live="polite">{liste.length} avis affiché{liste.length > 1 ? 's' : ''} sur ce filtre</p>
         <motion.ul layout className="columns-1 gap-6 sm:columns-2 lg:columns-3 [&>li]:mb-6 [&>li]:break-inside-avoid">
           <AnimatePresence mode="popLayout">

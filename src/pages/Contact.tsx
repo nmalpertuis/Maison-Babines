@@ -152,6 +152,7 @@ export default function Contact() {
 
         <aside className="flex flex-col gap-6" aria-label="Coordonnées">
           <Reveal>
+            <h2 className="mb-3 font-titre text-[28px] font-black">Coordonnées</h2>
             <ul className="flex flex-col gap-4 rounded-rayon border-[3px] border-noir bg-white p-6">
               <li className="flex gap-3"><MapPin className="shrink-0" strokeWidth={2.5} aria-hidden /><span><strong>Adresse de l'Atelier :</strong> 12 rue des Petits-Chiens, 69002 Lyon. Visites et essayages sur rendez-vous.</span></li>
               <li className="flex gap-3"><Mail className="shrink-0" strokeWidth={2.5} aria-hidden /><a href="mailto:bonjour@maisonbabines.fr" className="lien">bonjour@maisonbabines.fr</a></li>
@@ -163,7 +164,7 @@ export default function Contact() {
           </Reveal>
           <Reveal delai={0.1}>
             <div className="rounded-rayon border-[3px] border-noir bg-orange p-6 shadow-dure">
-              <p className="flex items-center gap-2 font-titre text-2xl font-black"><Siren strokeWidth={2.5} aria-hidden /> SOS Tenue</p>
+              <h2 className="flex items-center gap-2 font-titre text-2xl font-black"><Siren strokeWidth={2.5} aria-hidden /> SOS Tenue</h2>
               <p className="mt-2">Un problème la veille du grand jour ? Ligne d'urgence le vendredi et le samedi jusqu'à 21 h : <a href="tel:+33400000001" className="font-extrabold underline">04 00 00 00 01</a>.</p>
             </div>
           </Reveal>
@@ -182,7 +183,7 @@ export default function Contact() {
       <section className="conteneur pb-24" aria-labelledby="top3">
         <SplitTitle id="top3" className="text-[32px] lg:text-[40px]" texte="Les 3 questions les plus posées" />
         <Accordion className="mt-6" items={top3.map((x, i) => ({ id: String(i), titre: x.q, contenu: <p>{x.r}</p> }))} />
-        <Link to="/faq" className="lien mt-6 inline-block">Toutes les réponses à la Conciergerie</Link>
+        <Link to="/faq" className="lien mt-6 inline-block">Toute la Conciergerie : les 18 questions</Link>
       </section>
     </>
   );

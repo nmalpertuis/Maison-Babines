@@ -1,4 +1,4 @@
-import { Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { SplitTitle } from '@/components/motion/SplitTitle';
 import { motion } from 'framer-motion';
 import { getProduct, products, typeLabel } from '@/data/products';
@@ -76,6 +76,7 @@ export default function Product() {
           <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}>
             <BookingPanel key={produit.id} produit={produit} />
             <div className="mt-10">
+              <h2 className="mb-4 font-titre text-[28px] font-black">Détails de la tenue</h2>
               <Accordion
                 unique={false}
                 ouvertParDefaut={['description']}
@@ -119,6 +120,7 @@ export default function Product() {
             <p className="mt-4 font-titre text-6xl font-black">{produit.note.toLocaleString('fr-FR')}<span className="text-2xl">/5</span></p>
             <RatingStars note={produit.note} taille={24} className="mt-2" />
             <p className="mt-1 text-sm text-noir/70">{produit.nbAvis} avis</p>
+            <Link to="/avis" className="lien mt-3 inline-block text-sm">Lire tous les avis du Livre d'or</Link>
             <ul className="mt-6 flex flex-col gap-2">
               {[5, 4, 3, 2, 1].map((n) => (
                 <li key={n} className="flex items-center gap-3 text-sm font-bold">

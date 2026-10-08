@@ -18,13 +18,13 @@ export function LegalLayout({ titre, seo, description, intro, rubriques }: { tit
           <nav aria-label="Sommaire" className="lg:sticky lg:top-32 lg:self-start">
             <p className="surtitre mb-3 text-bordeaux">Sommaire</p>
             <ol className="flex flex-col gap-1 border-l-[3px] border-noir pl-4">
-              {rubriques.map((r, i) => <li key={r.id}><a href={`#${r.id}`} className="inline-flex min-h-[36px] items-center font-semibold hover:text-bordeaux hover:underline">{i + 1}. {r.titre}</a></li>)}
+              {rubriques.map((r, i) => <li key={r.id}><a href={`#${r.id}`} className="inline-flex min-h-[36px] items-center font-semibold hover:text-bordeaux hover:underline"><span className="mr-2 font-titre text-bordeaux">{String(i + 1).padStart(2, '0')}</span>{r.titre}</a></li>)}
             </ol>
           </nav>
           <div className="flex max-w-3xl flex-col gap-10 leading-relaxed">
             {rubriques.map((r, i) => (
               <section key={r.id} id={r.id} className="scroll-mt-32">
-                <SplitTitle className="text-[28px] lg:text-[36px]" texte={`${i + 1}. ${r.titre}`} />
+                <SplitTitle className="text-[28px] lg:text-[36px]" texte={`${String(i + 1).padStart(2, '0')} · ${r.titre}`} />
                 <div className="mt-4 flex flex-col gap-3 [&_li]:ml-5 [&_li]:list-disc">{r.contenu}</div>
               </section>
             ))}

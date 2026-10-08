@@ -54,6 +54,9 @@ export default function Catalogue() {
 
   const filtres = (
     <div className="flex flex-col gap-6">
+      <Groupe titre="Mes favoris">
+        <Checkbox label={<span>Afficher seulement mes favoris <span className="text-sm text-noir/60">({favoris.length})</span></span>} checked={f.favoris} onChange={(e) => maj({ favoris: e.target.checked ? '1' : null })} />
+      </Groupe>
       <Groupe titre="Type">
         <div className="flex flex-col gap-2.5">
           {TYPES.map((t) => <Checkbox key={t.id} label={t.label} checked={f.types.includes(t.id)} onChange={() => basculer('type', t.id, f.types)} />)}
