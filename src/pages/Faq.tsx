@@ -1,4 +1,5 @@
 import { Fragment, useMemo, useState, type ReactNode } from 'react';
+import { SplitTitle } from '@/components/motion/SplitTitle';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Search, X } from 'lucide-react';
@@ -84,7 +85,7 @@ export default function Faq() {
           <div className="flex flex-col gap-12">
             {themes.map((t) => (
               <motion.section key={t.id} id={t.id} layout className="scroll-mt-32" aria-labelledby={`t-${t.id}`}>
-                <h2 id={`t-${t.id}`} className="mb-5 text-[32px] lg:text-[40px]">{t.titre}</h2>
+                <SplitTitle id={`t-${t.id}`} className="mb-5 text-[32px] lg:text-[40px]" texte={t.titre} />
                 <Accordion
                   key={terme}
                   items={t.questions.map((x, i) => ({ id: `${t.id}-${i}`, titre: <Surligne texte={x.q} terme={terme} />, contenu: <p><Surligne texte={x.r} terme={terme} /></p> }))}

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ScallopDivider } from '@/components/brand/ScallopDivider';
 import { Breadcrumb, type Miette } from './Breadcrumb';
+import { SplitTitle } from '@/components/motion/SplitTitle';
 import { cx } from '@/lib/format';
 
 /** En-tête des pages intérieures : couleur pop, sur-titre "pièce de l'hôtel", H1, illustration, festons. */
@@ -23,12 +24,16 @@ export function PageHeader({
           >
             {surtitre}
           </motion.p>
-          <motion.h1
-            className="max-w-[14ch] text-[44px] sm:text-[52px] lg:text-[80px]"
-            initial={reduit ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {titre}
-          </motion.h1>
+          {typeof titre === 'string' ? (
+            <SplitTitle as="h1" texte={titre} delai={0.1} className="max-w-[14ch] text-[44px] sm:text-[52px] lg:text-[80px]" />
+          ) : (
+            <motion.h1
+              className="max-w-[14ch] text-[44px] sm:text-[52px] lg:text-[80px]"
+              initial={reduit ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {titre}
+            </motion.h1>
+          )}
           {sousTitre && (
             <motion.p
               className="mt-5 max-w-xl text-lg lg:text-xl"

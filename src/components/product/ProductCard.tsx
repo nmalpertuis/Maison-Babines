@@ -31,13 +31,13 @@ export function ProductCard({ produit, compact, apercu = true, onAjoutRapide }: 
     >
       <div className="relative">
         <Link to={`/produit/${produit.slug}`} tabIndex={-1} aria-hidden className="block">
-          <div className="relative aspect-square overflow-hidden rounded-t-[21px] border-b-[3px] border-noir">
+          <motion.div className="relative aspect-square overflow-hidden rounded-t-[21px] border-b-[3px] border-noir" initial={reduit ? false : { clipPath: 'inset(100% 0% 0% 0%)' }} whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }} viewport={{ once: true, margin: '-40px' }} transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}>
             <ProductImage src={produit.images[0]} alt={produit.alt} couleur={produit.couleurFond} className="absolute inset-0" imgClassName="group-hover:scale-105" />
             {/* 2e photo au survol */}
             <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
               <ProductImage src={produit.images[1]} alt="" couleur={produit.couleurFond} className="absolute inset-0" />
             </div>
-          </div>
+          </motion.div>
         </Link>
         {badge && (
           <span className={cx('absolute left-3 top-3 z-10 rounded-pilule border-[3px] border-noir px-3 py-1 font-accent text-sm shadow-petite', badge.couleur)} style={{ rotate: `${badge.angle}deg` }}>

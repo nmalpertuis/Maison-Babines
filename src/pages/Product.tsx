@@ -1,4 +1,5 @@
 import { Navigate, useParams } from 'react-router-dom';
+import { SplitTitle } from '@/components/motion/SplitTitle';
 import { motion } from 'framer-motion';
 import { getProduct, products, typeLabel } from '@/data/products';
 import { reviews } from '@/data/reviews';
@@ -97,7 +98,7 @@ export default function Product() {
         <section className="relative bg-rose" aria-labelledby="look-titre">
           <ScallopDivider couleur="var(--creme)" />
           <div className="conteneur section">
-            <Reveal><h2 id="look-titre">Complétez le look</h2></Reveal>
+            <Reveal><SplitTitle id="look-titre" texte="Complétez le look" /></Reveal>
             <Cascade as="ul" className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {look.map((p) => (
                 <motion.li key={p.id} variants={enfant}>
@@ -114,7 +115,7 @@ export default function Product() {
         <ScallopDivider couleur="var(--rose)" />
         <div className="conteneur section grid gap-12 lg:grid-cols-[340px_1fr]">
           <Reveal>
-            <h2 id="avis-titre" className="text-[36px] lg:text-[44px]">Avis sur ce produit</h2>
+            <SplitTitle id="avis-titre" className="text-[36px] lg:text-[44px]" texte="Avis sur ce produit" />
             <p className="mt-4 font-titre text-6xl font-black">{produit.note.toLocaleString('fr-FR')}<span className="text-2xl">/5</span></p>
             <RatingStars note={produit.note} taille={24} className="mt-2" />
             <p className="mt-1 text-sm text-noir/70">{produit.nbAvis} avis</p>
@@ -143,7 +144,7 @@ export default function Product() {
       {aussi.length > 0 && (
         <section className="section bg-creme pt-0 lg:pt-0" aria-labelledby="aussi-titre">
           <div className="conteneur">
-            <Reveal><h2 id="aussi-titre">Vous aimerez aussi</h2></Reveal>
+            <Reveal><SplitTitle id="aussi-titre" texte="Vous aimerez aussi" /></Reveal>
             <Reveal delai={0.1} className="mt-10">
               <Carousel label="Vous aimerez aussi" largeur="w-[82%] sm:w-[46%] lg:w-[23.5%]">
                 {aussi.map((p) => <ProductCard key={p.id} produit={p} compact />)}

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Seo } from '@/components/ui/Seo';
 import { ButtonLink } from '@/components/ui/Button';
 import { Baron } from '@/components/brand/illustrations';
+import { SplitTitle } from '@/components/motion/SplitTitle';
 
 export default function NotFound() {
   return (
@@ -21,7 +22,7 @@ export default function NotFound() {
         <div className="conteneur relative grid min-h-[75vh] items-center gap-8 py-16 lg:grid-cols-2">
           <div>
             <p className="surtitre inline-block rounded-pilule border-[3px] border-noir bg-creme px-3 py-1">La Chambre introuvable</p>
-            <h1 className="mt-6 text-[52px] lg:text-[88px]">Cette chambre n'existe pas</h1>
+            <SplitTitle as="h1" className="mt-6 text-[52px] lg:text-[88px]" texte="Cette chambre n'existe pas" />
             <p className="mt-6 max-w-md text-xl font-semibold">Même le Baron s'y est perdu. Retournons au Grand Hall.</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <ButtonLink to="/" variante="jaune" taille="lg">Retour à l'accueil</ButtonLink>

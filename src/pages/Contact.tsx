@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { SplitTitle } from '@/components/motion/SplitTitle';
 import { Link, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Clock, Instagram, Mail, MapPin, Music2, Phone, Pin, Siren } from 'lucide-react';
@@ -116,7 +117,7 @@ export default function Contact() {
               </motion.div>
             ) : (
               <motion.form key="f" onSubmit={envoyer} noValidate exit={{ opacity: 0, y: -20 }} className="flex flex-col gap-5 rounded-rayon border-[3px] border-noir bg-creme p-6 shadow-dure lg:p-8">
-                <h2 className="text-[32px] lg:text-[40px]">Écrire à la Réception</h2>
+                <SplitTitle className="text-[32px] lg:text-[40px]" texte="Écrire à la Réception" />
                 <p className="text-sm text-noir/70">Les champs marqués d'un * sont obligatoires.</p>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <Input id="ct-nom" label="Prénom et nom" obligatoire autoComplete="name" value={v.nom} onChange={(e) => set('nom', e.target.value)} onBlur={() => blur('nom')} erreur={err.nom} succes={ok('nom')} />
@@ -179,7 +180,7 @@ export default function Contact() {
       </div>
 
       <section className="conteneur pb-24" aria-labelledby="top3">
-        <h2 id="top3" className="text-[32px] lg:text-[40px]">Les 3 questions les plus posées</h2>
+        <SplitTitle id="top3" className="text-[32px] lg:text-[40px]" texte="Les 3 questions les plus posées" />
         <Accordion className="mt-6" items={top3.map((x, i) => ({ id: String(i), titre: x.q, contenu: <p>{x.r}</p> }))} />
         <Link to="/faq" className="lien mt-6 inline-block">Toutes les réponses à la Conciergerie</Link>
       </section>

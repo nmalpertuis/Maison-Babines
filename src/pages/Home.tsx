@@ -269,7 +269,7 @@ function PackMariage() {
       <div className="conteneur section grid items-center gap-12 lg:grid-cols-2">
         <Reveal>
           <p className="surtitre text-jaune">Pack Mariage · 1 tenue Gala + porte-alliances + accessoire + assurance</p>
-          <h2 id="pack-titre" className="mt-4 text-[56px] italic lg:text-[96px]">Oui, je wouf.</h2>
+          <SplitTitle id="pack-titre" className="mt-4 text-[56px] italic lg:text-[96px]" texte="Oui, je wouf." />
           <p className="mt-6 max-w-lg text-lg lg:text-xl">
             Smoking ou robe, porte-alliances, accessoire et assurance : tout pour que votre chien ne vole pas la vedette… enfin, un peu quand même. 149 € au lieu de 186 €.
           </p>

@@ -1,4 +1,5 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { SplitTitle } from '@/components/motion/SplitTitle';
 import { useRef } from 'react';
 import { Check, Droplets, Heart, Recycle, Scissors, Shield, Sparkles, Shirt, Search, Wind, Package, Ruler, Factory, HandHeart } from 'lucide-react';
 import { Seo } from '@/components/ui/Seo';
@@ -35,27 +36,37 @@ const EQUIPE = [
 ] as const;
 
 function Frise() {
-  const ref = useRef<HTMLOListElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const reduit = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 80%', 'end 60%'] });
-  const largeur = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
+  const x = useTransform(scrollYProgress, [0, 1], reduit ? ['0%', '0%'] : ['0%', '-62%']);
+  const barre = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const couleurs = ['bg-rose', 'bg-bleu', 'bg-jaune', 'bg-vert', 'bg-orange', 'bg-creme'];
+  const carte = (e: (typeof PARCOURS)[number], i: number) => (
+    <div className={cx('flex h-full flex-col gap-4 rounded-rayon border-[3px] border-noir p-7 shadow-dure', couleurs[i])}>
+      <span className="grid h-16 w-16 place-items-center rounded-full border-[3px] border-noir bg-creme"><e.i size={28} strokeWidth={2.5} aria-hidden /></span>
+      <p className="font-titre text-[64px] font-black leading-none">0{i + 1}</p>
+      <p className="text-lg font-semibold">{e.t}</p>
+    </div>
+  );
   return (
-    <ol ref={ref} className="relative mt-14 grid gap-8 lg:grid-cols-6 lg:gap-4">
-      <div aria-hidden className="absolute bottom-0 left-7 top-0 w-1 rounded-full bg-noir/30 lg:bottom-auto lg:left-0 lg:right-0 lg:top-7 lg:h-1 lg:w-auto">
-        <motion.div className="hidden h-full w-full origin-left rounded-full bg-noir lg:block" style={reduit ? undefined : { scaleX: largeur as unknown as number }} />
-      </div>
-      {PARCOURS.map((e, i) => (
-        <Reveal as="li" key={i} delai={i * 0.08} className="relative flex gap-5 lg:flex-col lg:items-center lg:text-center">
-          <span className={cx('relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-full border-[3px] border-noir shadow-petite', ['bg-rose', 'bg-bleu', 'bg-jaune', 'bg-vert', 'bg-orange', 'bg-creme'][i])}>
-            <e.i size={24} strokeWidth={2.5} aria-hidden />
-          </span>
-          <div>
-            <p className="font-titre text-xl font-black">Étape {i + 1}</p>
-            <p className="mt-1">{e.t}</p>
+    <>
+      {/* Mobile et tablette : liste verticale */}
+      <ol className="mt-12 grid gap-6 lg:hidden">
+        {PARCOURS.map((e, i) => <Reveal as="li" key={i} delai={i * 0.05}>{carte(e, i)}</Reveal>)}
+      </ol>
+      {/* Ordinateur : frise horizontale épinglée */}
+      <div ref={ref} className="relative mt-4 hidden lg:block" style={{ height: '260vh' }}>
+        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+          <motion.ol className="flex w-max gap-8 pl-[max(48px,calc((100vw-1280px)/2+48px))]" style={{ x }}>
+            {PARCOURS.map((e, i) => <li key={i} className="h-[420px] w-[380px] shrink-0">{carte(e, i)}</li>)}
+          </motion.ol>
+          <div className="mx-auto mt-10 h-1.5 w-full max-w-[1184px] overflow-hidden rounded-full bg-noir/15" aria-hidden>
+            <motion.div className="h-full bg-noir" style={{ width: barre }} />
           </div>
-        </Reveal>
-      ))}
-    </ol>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -80,7 +91,7 @@ export default function Expertise() {
             </motion.div>
           </Reveal>
           <Reveal delai={0.1}>
-            <h2 id="histoire-titre">Notre histoire</h2>
+            <SplitTitle id="histoire-titre" texte="Notre histoire" />
             <p className="mt-6 text-lg leading-relaxed">
               Tout a commencé au mariage de Margot, en 2024. Son teckel, Biscotte, portait un nœud pap' acheté la veille, trois tailles trop grand. Le soir même, avec Léon, couturier de métier, ils dessinaient le premier smoking pour chien qui se loue. Biscotte est devenu Baron, et l'Atelier a ouvert ses portes à Lyon.
             </p>
@@ -92,7 +103,7 @@ export default function Expertise() {
       {/* Savoir-faire */}
       <section className="section bg-creme pt-0 lg:pt-0" aria-labelledby="sf-titre">
         <div className="conteneur">
-          <Reveal><h2 id="sf-titre">Nos savoir-faire</h2></Reveal>
+          <Reveal><SplitTitle id="sf-titre" texte="Nos savoir-faire" /></Reveal>
           <Cascade as="ul" className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {SAVOIR.map((s) => (
               <motion.li key={s.t} variants={enfant} whileHover={{ y: -6, rotate: -1 }} className={cx('rounded-rayon border-[3px] border-noir p-6 shadow-dure', s.c)}>
@@ -108,16 +119,16 @@ export default function Expertise() {
       {/* Parcours d'une tenue */}
       <section className="relative bg-creme" aria-labelledby="parcours-titre">
         <div className="conteneur section pt-0 lg:pt-0">
-          <Reveal><h2 id="parcours-titre">Le parcours d'une tenue</h2></Reveal>
-          <Frise />
+          <Reveal><SplitTitle id="parcours-titre" texte="Le parcours d'une tenue" /></Reveal>
         </div>
+        <Frise />
       </section>
 
       {/* Chiffres */}
       <section className="relative bg-jaune" aria-labelledby="chiffres-titre">
         <ScallopDivider couleur="var(--creme)" />
         <div className="conteneur section">
-          <Reveal><h2 id="chiffres-titre" className="text-center">Les chiffres de l'Atelier</h2></Reveal>
+          <Reveal><SplitTitle id="chiffres-titre" className="text-center" texte="Les chiffres de l'Atelier" /></Reveal>
           <Cascade as="ul" className="mt-12 grid grid-cols-2 gap-6 lg:grid-cols-4">
             {[
               { v: 3200, s: '', t: 'chiens habillés' },
@@ -139,7 +150,7 @@ export default function Expertise() {
       <section className="relative bg-creme" aria-labelledby="eng-titre">
         <ScallopDivider couleur="var(--jaune)" />
         <div className="conteneur section">
-          <Reveal><h2 id="eng-titre">Nos engagements</h2></Reveal>
+          <Reveal><SplitTitle id="eng-titre" texte="Nos engagements" /></Reveal>
           <Cascade as="ul" className="mt-12 grid gap-6 md:grid-cols-2">
             {[
               { t: 'Louer plutôt qu\'acheter', d: 'Une tenue sert en moyenne 40 fois.', i: Recycle },
@@ -159,7 +170,7 @@ export default function Expertise() {
       {/* Équipe */}
       <section className="section bg-creme pt-0 lg:pt-0" aria-labelledby="equipe-titre">
         <div className="conteneur">
-          <Reveal><h2 id="equipe-titre">L'équipe</h2><p className="mt-3 text-noir/70">Portraits fictifs, chacun avec son chien.</p></Reveal>
+          <Reveal><SplitTitle id="equipe-titre" texte="L'équipe" /><p className="mt-3 text-noir/70">Portraits fictifs, chacun avec son chien.</p></Reveal>
           <Cascade as="ul" className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {EQUIPE.map((m) => (
               <motion.li key={m.n} variants={enfant} className="overflow-hidden rounded-rayon border-[3px] border-noir bg-creme shadow-dure">
@@ -188,7 +199,7 @@ export default function Expertise() {
         <div className="conteneur section grid items-center gap-10 lg:grid-cols-[1.3fr_1fr]">
           <Reveal>
             <p className="surtitre">Offre Pro</p>
-            <h2 id="pro-titre" className="mt-3">Wedding planners, photographes, agences : travaillons ensemble.</h2>
+            <SplitTitle id="pro-titre" className="mt-3" texte="Wedding planners, photographes, agences : travaillons ensemble." />
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {['Interlocuteur dédié', 'Réservations multiples', 'Tarifs négociés', 'Facturation mensuelle'].map((x) => (
                 <li key={x} className="flex items-center gap-3 rounded-2xl border-[3px] border-noir bg-creme px-4 py-3 font-bold">
@@ -213,7 +224,7 @@ export default function Expertise() {
         <ScallopDivider couleur="var(--bleu)" />
         <div className="conteneur section flex flex-col items-center text-center">
           <Baron pose="salue" className="w-full max-w-md" />
-          <Reveal><h2 id="final-titre" className="mt-6">Prêt pour le grand soir ?</h2></Reveal>
+          <Reveal><SplitTitle id="final-titre" className="mt-6" texte="Prêt pour le grand soir ?" /></Reveal>
           <ButtonLink to="/catalogue" taille="lg" className="mt-8">Découvrir le Grand Dressing</ButtonLink>
         </div>
       </section>

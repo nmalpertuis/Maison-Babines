@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { SplitTitle } from '@/components/motion/SplitTitle';
 import { Seo } from '@/components/ui/Seo';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 
@@ -23,7 +24,7 @@ export function LegalLayout({ titre, seo, description, intro, rubriques }: { tit
           <div className="flex max-w-3xl flex-col gap-10 leading-relaxed">
             {rubriques.map((r, i) => (
               <section key={r.id} id={r.id} className="scroll-mt-32">
-                <h2 className="text-[28px] lg:text-[36px]">{i + 1}. {r.titre}</h2>
+                <SplitTitle className="text-[28px] lg:text-[36px]" texte={`${i + 1}. ${r.titre}`} />
                 <div className="mt-4 flex flex-col gap-3 [&_li]:ml-5 [&_li]:list-disc">{r.contenu}</div>
               </section>
             ))}
