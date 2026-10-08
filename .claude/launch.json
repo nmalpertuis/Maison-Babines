@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "maison-babines",
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": ["-c", "export PATH=/Users/nath/.local/node/bin:$PATH && cd /Users/nath/Projets/maison-babines && npm run dev -- --port 5180 --strictPort"],
+      "port": 5180
+    }
+  ]
+}
