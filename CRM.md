@@ -9,6 +9,13 @@ Il centralise :
 - **Abonnés** à la Gazette (export CSV) ;
 - **Avis** déposés sur le Livre d'or (modération).
 
+## Connexion
+
+- **Mode démo** : identifiant `admin` et mot de passe définis dans `.env.local` (`VITE_ADMIN_ID`, `VITE_ADMIN_PASSWORD`). Ce fichier n'est pas envoyé sur GitHub ; votre collaboratrice crée le sien à partir de `.env.example`.
+- **Avec Supabase** : e-mail et mot de passe du compte créé dans Authentication → Users.
+
+Le mode démo est une simple barrière pour les présentations : le mot de passe est intégré au code envoyé au navigateur. La vraie sécurité vient de Supabase (connexion + règles RLS).
+
 ## Mode démo (par défaut)
 
 Sans configuration, le CRM fonctionne avec des données d'exemple stockées dans le navigateur. Toutes les réservations, messages, inscriptions et avis faits sur le site en local s'y ajoutent. Bouton « Réinitialiser la démo » en haut de l'écran.

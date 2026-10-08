@@ -75,8 +75,8 @@ function Connexion({ ok }: { ok: () => void }) {
         <LogoMark className="mx-auto h-24 w-24" />
         <h1 className="mt-4 text-center text-[32px]">Espace équipe</h1>
         <p className="mt-1 text-center text-sm text-noir/70">Le registre du Grand Hôtel</p>
-        <label className="etiquette mt-6" htmlFor="a-email">E-mail</label>
-        <input id="a-email" type="email" autoComplete="username" className="champ" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <label className="etiquette mt-6" htmlFor="a-email">{modeDemo ? 'Identifiant' : 'E-mail'}</label>
+        <input id="a-email" type={modeDemo ? 'text' : 'email'} autoComplete="username" autoCapitalize="none" className="champ" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <label className="etiquette mt-4" htmlFor="a-mdp">Mot de passe</label>
         <input id="a-mdp" type="password" autoComplete="current-password" className="champ" value={mdp} onChange={(e) => setMdp(e.target.value)} required />
         {err && <p className="mt-3 text-sm font-bold text-bordeaux" role="alert">{err}</p>}
@@ -469,7 +469,7 @@ export default function Admin() {
         </nav>
         <div className="mt-auto hidden flex-col gap-2 text-sm lg:flex">
           <p className="flex items-center gap-2 text-creme/80"><Database size={16} aria-hidden /> {modeDemo ? 'Mode démo (local)' : 'Connecté à Supabase'}</p>
-          {!modeDemo && <button type="button" onClick={async () => { await deconnexion(); setAuth(false); }} className="flex items-center gap-2 font-bold hover:underline"><LogOut size={16} aria-hidden /> Se déconnecter</button>}
+          <button type="button" onClick={async () => { await deconnexion(); setAuth(false); }} className="flex items-center gap-2 font-bold hover:underline"><LogOut size={16} aria-hidden /> Se déconnecter</button>
           <Link to="/" className="hover:underline">← Retour au site</Link>
         </div>
       </aside>

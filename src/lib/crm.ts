@@ -239,16 +239,31 @@ export async function supprimer(table: Table, id: string) {
 /* Authentification de l'équipe                                        */
 /* ------------------------------------------------------------------ */
 
-export async function connexion(email: string, motDePasse: string) {
-  if (!supabase) return;
-  const { error } = await supabase.auth.signInWithPassword({ email, password: motDePasse });
+/** Identifiants du mode démo (sans Supabase), définis dans .env.local. */
+const ADMIN_ID = import.meta.env.VITE_ADMIN_ID || 'admin';
+const ADMIN_MDP = import.meta.env.VITE_ADMIN_PASSWORD || '';
+const CLE_SESSION = 'babines-crm-session';
+
+/** Connexion de l'équipe : e-mail Supabase, ou identifiant "admin" en mode démo. */
+export async function connexion(identifiant: string, motDePasse: string) {
+  if (!supabase) {
+    if (!ADMIN_MDP || identifiant.trim().toLowerCase() !== ADMIN_ID.toLowerCase() || motDePasse !== ADMIN_MDP) {
+      throw new Error('Identifiants incorrects.');
+    }
+    try { sessionStorage.setItem(CLE_SESSION, '1'); } catch { /* navigation privée */ }
+    return;
+  }
+  const { error } = await supabase.auth.signInWithPassword({ email: identifiant, password: motDePasse });
   if (error) throw error;
 }
 export async function deconnexion() {
   if (supabase) await supabase.auth.signOut();
+  try { sessionStorage.removeItem(CLE_SESSION); } catch { /* rien */ }
 }
 export async function sessionActive() {
-  if (!supabase) return true;
+  if (!supabase) {
+    try { return sessionStorage.getItem(CLE_SESSION) === '1'; } catch { return false; }
+  }
   const { data } = await supabase.auth.getSession();
   return !!data.session;
 }
